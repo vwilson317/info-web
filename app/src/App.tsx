@@ -1,12 +1,26 @@
 import './App.css';
-import Counter from './Counter';
+import Home from './Home';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from './Layout';
+import Flyer from './Events/Flyer';
 
-function App() {
+export default function App() {
+  const router = createBrowserRouter([
+    {
+      element: <Layout />,
+      children: [{
+        path: '/',
+        element: <Home />
+      }, {
+        path: 'events',
+        element: <Flyer />
+      }]
+    }
+  ])
+
   return (
     <div className="App">
-      <Counter />
+      <RouterProvider router={router} />
     </div>
   );
 }
-
-export default App;

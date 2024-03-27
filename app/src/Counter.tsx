@@ -16,7 +16,11 @@ export default function Counter() {
 
     return (
         <div>
-            <h1>{count}</h1>
+            <h1 style={style}>{count}</h1>
         </div>
     );
+}
+
+const style = {
+    fontSize: '6em',
 }
