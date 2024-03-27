@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rio Hackathon</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rio Hackathon</title>
+  <style>
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
-    height: 100vh; /* Set body to full screen */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Set a minimum height to the viewport */
   }
   .parallax {
     background-image: url('ipanema-beach.jpg');
@@ -19,7 +21,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 400px;
+    height: 550px; /* Set height to 100% of the viewport */
     position: relative;
     overflow: hidden;
     color: #fff;
@@ -69,37 +71,85 @@
     color: #fff;
     padding: 20px 0;
     text-align: center;
-    position: relative;
-    bottom: 0;
     width: 100%;
+    flex-shrink: 0; /* Prevent footer from shrinking */
   }
   footer a {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
   }
-</style>
+  </style>
 </head>
+
 <body>
+  <div class="parallax">
+    <div class="overlay">
+      <div class="container">
+        <h1>Welcome to Rio Hackathon!</h1>
+        <p>Join us for an exciting hackathon event in Rio de Janeiro, Brazil. Whether you're a beginner or an
+          experienced developer, everyone is welcome!</p>
+        <p>Start Time: Thursday, March 28th, 6:00 PM</p>
+        <p>End Time: Sunday, March 31st</p>
+        <p>The location will be determined based on turnout, so stay tuned for updates.</p>
+        <a href="#" class="btn">Register Now</a>
+      </div>
 
-<div class="parallax">
-  <div class="overlay">
-    <div class="container">
-      <h1>Welcome to Rio Hackathon!</h1>
-      <p>Join us for an exciting hackathon event in Rio de Janeiro, Brazil. Whether you're a beginner or an experienced developer, everyone is welcome!</p>
-      <p>Start Time: Wednesday, March 27th, 6:00 PM</p>
-      <p>End Time: Sunday, March 31st</p>
-      <p>The location will be determined based on turnout, so stay tuned for updates.</p>
-      <a href="#" class="btn">Register Now</a>
     </div>
-  </div>
-</div>
 
-<footer>
-  <a href="#">Contact Us</a>
-  <a href="#">Support Us</a>
-  <a href="#">Submit Feedback</a>
-</footer>
+
+  </div>
+
+  <!-- <div class="container">
+    <h1>What to Expect</h1>
+    <p>At Rio Hackathon, you'll have the opportunity to:</p>
+    <ul>
+      <li>Meet other developers and make new friends</li>
+      <li>Learn new technologies and improve your skills</li>
+      <li>Build a project and showcase your work</li>
+      <li>Win prizes and have fun!</li>
+    </ul>
+  </div> -->
+
+  <!-- <div class="container">
+    <h1>What to Expect</h1>
+    <p>At Rio Hackathon, you'll have the opportunity to:</p>
+    <ul>
+      <li>Meet other developers and make new friends</li>
+      <li>Learn new technologies and improve your skills</li>
+      <li>Build a project and showcase your work</li>
+      <li>Win prizes and have fun!</li>
+    </ul>
+  </div> -->
+
+  <!-- <div class="container">
+    <h1>What to Expect</h1>
+    <p>At Rio Hackathon, you'll have the opportunity to:</p>
+    <ul>
+      <li>Meet other developers and make new friends</li>
+      <li>Learn new technologies and improve your skills</li>
+      <li>Build a project and showcase your work</li>
+      <li>Win prizes and have fun!</li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <h1>What to Expect</h1>
+    <p>At Rio Hackathon, you'll have the opportunity to:</p>
+    <ul>
+      <li>Meet other developers and make new friends</li>
+      <li>Learn new technologies and improve your skills</li>
+      <li>Build a project and showcase your work</li>
+      <li>Win prizes and have fun!</li>
+    </ul>
+  </div> -->
+
+  <footer>
+    <a href="#">Contact Us</a>
+    <a href="#">Support Us</a>
+    <a href="#">Submit Feedback</a>
+  </footer>
 
 </body>
+
 </html>
