@@ -3,7 +3,7 @@ const sqlServer = require('mssql')
 // Create a connection pool
 const config = {
   server: 'localhost',
-  user: 'serviceAccount',
+  user: 'ServiceAccount',
   password: 'local123',
   database: 'BodyByBurgersDB',
     // port: 1433,

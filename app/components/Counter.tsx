@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Api from './api';
+import Api from '../dataAccess/api';
 
 export default function Counter() {
     const [count, setCount] = useState(0);

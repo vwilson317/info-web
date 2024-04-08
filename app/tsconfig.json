@@ -22,5 +22,5 @@
   },
   "include": [
     "src"
-  ]
+, "components/Wait.tsx", "components/Counter.tsx", "dataAccess/api.ts"  ]
 }

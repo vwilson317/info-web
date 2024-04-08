@@ -63,6 +63,15 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="BurgersEaten.sql" />
+    <Build Include="CreateReview.sql" />
+    <Build Include="Ingredients.sql" />
+    <Build Include="Pics.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BodyByBurgersDB_1.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Script.PreDeploymentAddUser.sql" />
   </ItemGroup>
   <Target Name="BeforeBuild">
     <Delete Files="$(BaseIntermediateOutputPath)\project.assets.json" />
