@@ -69,6 +69,7 @@
     <Build Include="Review.sql" />
     <Build Include="ReviewIngredient.sql" />
     <Build Include="sp_CreateReviewIngredient.sql" />
+    <Build Include="sp_SearchIngredient.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BodyByBurgersDB_1.publish.xml" />

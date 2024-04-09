@@ -28,9 +28,9 @@ app.get('/api/reviews', async (req: Request, res: Response) => {
 });
 
 app.get('/api/ingredients', async (req: Request, res: Response) => {
-  const hasParams = !_.isEmpty(req.params.query);
+  const hasParams = !_.isEmpty(req.query.query);
   if(hasParams) {
-    const ingredients = await searchForIngredient(req.params?.query);
+    const ingredients: Ingredient[] = await searchForIngredient(req.query?.query);
     res.json(ingredients);
   } else {
     const ingredients = await getIngredientsAsync();
