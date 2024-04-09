@@ -28,7 +28,7 @@ app.get('/api/reviews', async (req: Request, res: Response) => {
 });
 
 app.get('/api/ingredients', async (req: Request, res: Response) => {
-  const hasParams = _.isEmpty(req.params);
+  const hasParams = !_.isEmpty(req.params.query);
   if(hasParams) {
     const ingredients = await searchForIngredient(req.params?.query);
     res.json(ingredients);
@@ -40,8 +40,12 @@ app.get('/api/ingredients', async (req: Request, res: Response) => {
 
 app.post('/api/ingredients', async (req: Request, res: Response) => {
   const ingredient: Ingredient = req.body;
-  await createIngredientAsync(ingredient);
-  console.log('Ingredient created:', ingredient.Id);
+  const id = await createIngredientAsync(ingredient);
+
+  console.log('Ingredient created:', id);
+
+  ingredient.Id = id;
+  res.json(ingredient);
 });
 
 app.listen(port, () => {

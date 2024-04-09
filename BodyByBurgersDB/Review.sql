@@ -5,7 +5,8 @@ CREATE TABLE [dbo].[Review]
     [Description] NVARCHAR(MAX),
     Rating DECIMAL(2,1),
     [Location] NVARCHAR(255) NULL,
-    GeoLocation NVARCHAR(MAX),
+    GeoLocation NVARCHAR(MAX) NULL,
     [Date] DATETIMEOFFSET DEFAULT (SYSDATETIMEOFFSET()),
-    Price DECIMAL(5,2)
+    Price DECIMAL(5,2),
+    [Insta] NVARCHAR(255) NULL
 )

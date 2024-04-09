@@ -1,3 +1,4 @@
+import { Ingredient } from './ingredient';
 import {Picture} from './picture';
 
 export interface Review {
@@ -9,6 +10,7 @@ export interface Review {
     Date: string;
     Rating: number;
     Price: string;
-    Ingredients: string[];
+    Ingredients: Ingredient[];
     Pics: Picture[];
+    Insta: string;
     }
