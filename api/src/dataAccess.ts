@@ -1,4 +1,5 @@
 const sqlServer = require('mssql')
+import { Review } from '../models/review';
 
 // Create a connection pool
 const config = {
@@ -54,8 +55,25 @@ export async function getCountAsync(): Promise<number>{
     return results[0][''];
 };
 
-// export const DataAccess = {
-//     async GetCountAsync(){
+export async function createReviewAsync(review: Review): Promise<number> {
+  const id = _pool.request()
+  .input('Name', sqlServer.VarChar, review.Name)
+  .input('Description', sqlServer.VarChar, review.Description)
+  .input('Location', sqlServer.VarChar, review.Location)
+  .input('GeoLocation', sqlServer.VarChar, review.GeoLocation)
+  .input('Date', sqlServer.Date, review.Date)
+  .input('Rating', sqlServer.Decimal, review.Rating)
+  .input('Price', sqlServer.Decimal, review.Price)
+  .output('Id', sqlServer.Int)
+  .execute('sp_CreateReview')
 
-//     }
-// }
+  // write to insert pictures
+  // foreach (ingredient in review.Ingredients) {
+  //   _pool.request()
+  //   .input('Id', sqlServer.Int, id)
+  //   .input('Ingredient', sqlServer.VarChar, ingredient)
+  //   .execute('SP_CreateIngredient')
+  // }
+
+  return id;
+};
