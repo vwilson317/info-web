@@ -64,8 +64,8 @@ export async function createReviewAsync(review: Review): Promise<number> {
   .input('Location', sqlServer.VarChar, review.Location)
   .input('GeoLocation', sqlServer.VarChar, review.GeoLocation)
   .input('Date', sqlServer.Date, review.Date)
-  .input('Rating', sqlServer.Decimal, review.Rating)
-  .input('Price', sqlServer.Decimal, review.Price)
+  .input('Rating', sqlServer.Decimal(2,1), review.Rating)
+  .input('Price', sqlServer.Decimal(5,2), review.Price)
   .output('Id', sqlServer.Int);
   
   request.execute('sp_CreateReview', function(err, recordsets, returnValue, affected) {
