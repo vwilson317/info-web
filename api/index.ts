@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import { getCountAsync, createReviewAsync } from './dataAccess';
-import { Review } from '../models/review';
+import { Review } from './models/review';
 const app = express();
 const port = process.env.PORT || 3001;
 const cors = require('cors');
@@ -18,6 +18,10 @@ app.post('/api/reviews', async (req: Request, res: Response) => {
   const review = req.body;
   await createReviewAsync(review);
   console.log('Review created:', review.Id);
+});
+
+app.get('/api/reviews', async (req: Request, res: Response) => {
+  res.json({} as Review);
 });
 
 app.listen(port, () => {

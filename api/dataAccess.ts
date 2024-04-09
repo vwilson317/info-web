@@ -1,5 +1,5 @@
 const sqlServer = require('mssql')
-import { Review } from '../models/review';
+import { Review } from './models/review';
 
 // Create a connection pool
 const config = {
