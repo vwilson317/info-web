@@ -15,7 +15,7 @@ app.get('/api/count', async (req: Request, res: Response) => {
 });
 
 app.post('/api/reviews', async (req: Request, res: Response) => {
-  const review = req.body;
+  const review: Review = req.body;
   await createReviewAsync(review);
   console.log('Review created:', review.Id);
 });

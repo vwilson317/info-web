@@ -62,10 +62,10 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="BurgersEaten.sql" />
     <Build Include="CreateReview.sql" />
     <Build Include="Ingredients.sql" />
     <Build Include="Pics.sql" />
+    <Build Include="Review.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="BodyByBurgersDB_1.publish.xml" />

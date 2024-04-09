@@ -56,7 +56,9 @@ export async function getCountAsync(): Promise<number>{
 };
 
 export async function createReviewAsync(review: Review): Promise<number> {
-  const id = _pool.request()
+  let id: number;
+
+  const request = _pool.request()
   .input('Name', sqlServer.VarChar, review.Name)
   .input('Description', sqlServer.VarChar, review.Description)
   .input('Location', sqlServer.VarChar, review.Location)
@@ -64,8 +66,12 @@ export async function createReviewAsync(review: Review): Promise<number> {
   .input('Date', sqlServer.Date, review.Date)
   .input('Rating', sqlServer.Decimal, review.Rating)
   .input('Price', sqlServer.Decimal, review.Price)
-  .output('Id', sqlServer.Int)
-  .execute('sp_CreateReview')
+  .output('Id', sqlServer.Int);
+  
+  request.execute('sp_CreateReview', function(err, recordsets, returnValue, affected) {
+    if(err) console.log(err);
+    id = request.parameters.Id;
+  });
 
   // write to insert pictures
   // foreach (ingredient in review.Ingredients) {

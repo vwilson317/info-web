@@ -1,7 +1,7 @@
 CREATE TABLE [dbo].[Ingredients]
 (
-    ID INT PRIMARY KEY,
-    BurgerID INT,
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    ReviewId INT,
     [Name] NVARCHAR(255),
-    CONSTRAINT FK_BurgerIngredient FOREIGN KEY (BurgerID) REFERENCES dbo.BurgersEaten(ID)
+    CONSTRAINT FK_ReviewIngredient FOREIGN KEY (ReviewId) REFERENCES dbo.Review(Id)
 )

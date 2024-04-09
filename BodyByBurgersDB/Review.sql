@@ -1,6 +1,6 @@
-CREATE TABLE [dbo].[BurgersEaten]
+CREATE TABLE [dbo].[Review]
 (
-    ID INT PRIMARY KEY,
+    Id INT IDENTITY(1,1) PRIMARY KEY,
     [Name] NVARCHAR(255),
     [Description] NVARCHAR(MAX),
     Rating DECIMAL(2,1),
