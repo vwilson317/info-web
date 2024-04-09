@@ -1,6 +1,9 @@
 import express, { Request, Response } from 'express';
-import { getCountAsync, createReviewAsync } from './dataAccess';
+import { getCountAsync, createReviewAsync, createIngredientAsync, getIngredientsAsync, searchForIngredient } from './dataAccess';
 import { Review } from './models/review';
+import { Ingredient } from './models/ingredient';
+import _ from 'lodash';
+
 const app = express();
 const port = process.env.PORT || 3001;
 const cors = require('cors');
@@ -22,6 +25,23 @@ app.post('/api/reviews', async (req: Request, res: Response) => {
 
 app.get('/api/reviews', async (req: Request, res: Response) => {
   res.json({} as Review);
+});
+
+app.get('/api/ingredients', async (req: Request, res: Response) => {
+  const hasParams = _.isEmpty(req.params);
+  if(hasParams) {
+    const ingredients = await searchForIngredient(req.params?.query);
+    res.json(ingredients);
+  } else {
+    const ingredients = await getIngredientsAsync();
+    res.json(ingredients);
+  }
+});
+
+app.post('/api/ingredients', async (req: Request, res: Response) => {
+  const ingredient: Ingredient = req.body;
+  await createIngredientAsync(ingredient);
+  console.log('Ingredient created:', ingredient.Id);
 });
 
 app.listen(port, () => {

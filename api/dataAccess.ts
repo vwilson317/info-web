@@ -1,4 +1,5 @@
 const sqlServer = require('mssql')
+import { Ingredient } from './models/ingredient';
 import { Review } from './models/review';
 
 // Create a connection pool
@@ -83,3 +84,31 @@ export async function createReviewAsync(review: Review): Promise<number> {
 
   return id;
 };
+
+export async function createIngredientAsync(ingredient: Ingredient): Promise<number> {
+  let id: number;
+
+  const request = _pool.request()
+  .input('Name', sqlServer.VarChar, ingredient.Name)
+  .input('Icon', sqlServer.VarChar, ingredient.Icon)
+  .output('Id', sqlServer.Int);
+  
+  request.execute('sp_CreateIngredient', function(err, recordsets, returnValue, affected) {
+    if(err) console.log(err);
+    id = request.parameters.Id;
+  });
+
+  return id;
+}
+
+export async function getIngredientsAsync(): Promise<Ingredient[]> {
+
+  const selectStr = "select * from Ingredients";
+  const results = await query(selectStr);
+  return results[0][''];
+}
+
+export async function searchForIngredient(query: string | undefined): Promise<Ingredient[]> {
+  //todo: implement search
+  return [];
+}
