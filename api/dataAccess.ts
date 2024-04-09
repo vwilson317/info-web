@@ -26,7 +26,7 @@ sqlServer.connect(config).then((pool: any) => {
   console.error('Database connection failed!', err);
 });
 
-async function query(sql: string, params = []) {
+async function query(sql: string, params = [{}]) {
   try {
     if (params.length == 0) {
       const results = await _pool.request().query(sql);
@@ -49,7 +49,7 @@ async function query(sql: string, params = []) {
 };
 
 export async function getCountAsync(): Promise<number> {
-  const quertStr = "select count(*) from BurgersEaten";
+  const quertStr = "select count(*) from Review";
 
   //this is business logic, so it should not be in the data access layer
   const results = await query(quertStr);
@@ -101,11 +101,11 @@ export async function createIngredientAsync(ingredient: Ingredient): Promise<num
     .input('Icon', sqlServer.VarChar, ingredient.Icon)
     .output('Id', sqlServer.Int);
 
-  try{
+  try {
     const result = await request.execute('sp_CreateIngredient');
     id = result.output.Id;
     return id;
-  }catch(err){
+  } catch (err) {
     console.log(err);
   }
 
@@ -120,5 +120,8 @@ export async function getIngredientsAsync(): Promise<Ingredient[]> {
 
 export async function searchForIngredient(query: string | undefined): Promise<Ingredient[]> {
   //todo: implement search
-  return [{} as Ingredient];
+  const results = await _pool.request()
+  .input('query', sqlServer.NVarChar(255), query)
+  .execute('sp_SearchIngredient');
+  return results.recordsets[0];
 }
