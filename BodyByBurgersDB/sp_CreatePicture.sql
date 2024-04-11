@@ -1,0 +1,6 @@
+CREATE PROCEDURE [dbo].[sp_CreatePicture]
+  @Url NVARCHAR(MAX)
+AS
+  INSERT INTO dbo.Pic([Url]) 
+  VALUES (@Url)
+RETURN SCOPE_IDENTITY()

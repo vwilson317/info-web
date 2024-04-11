@@ -1,5 +1,5 @@
 import { Ingredient } from './ingredient';
-import {Picture} from './picture';
+import { Picture } from './picture';
 
 export interface Review {
     Id: number;
@@ -13,4 +13,4 @@ export interface Review {
     Ingredients: Ingredient[];
     Pics: Picture[];
     Insta: string;
-    }
+}

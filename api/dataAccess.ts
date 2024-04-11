@@ -79,6 +79,13 @@ export async function createReviewAsync(review: Review): Promise<number> {
         .input('IngredientId', sqlServer.Int, ingredient.Id)
         .execute('sp_CreateReviewIngredient');
     });
+
+    review.Pics.forEach(async (pic) => {
+      await _pool.request()
+      .input('Url', sqlServer.NVarChar, pic.Url)
+      .input('ReviewId', sqlServer.Int, id)
+      .execute('sp_CreatePicture')
+    })
   } catch (err) {
     console.log(err);
   }

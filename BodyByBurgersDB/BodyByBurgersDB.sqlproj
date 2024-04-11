@@ -68,6 +68,7 @@
     <Build Include="Pic.sql" />
     <Build Include="Review.sql" />
     <Build Include="ReviewIngredient.sql" />
+    <Build Include="sp_CreatePicture.sql" />
     <Build Include="sp_CreateReviewIngredient.sql" />
     <Build Include="sp_SearchIngredient.sql" />
   </ItemGroup>
