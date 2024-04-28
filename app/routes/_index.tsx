@@ -1,8 +1,10 @@
 import type { MetaFunction } from "@remix-run/node";
+import { useLoaderData } from "@remix-run/react";
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import Counter from "~/components/Counter";
 import Wait from "~/components/Wait";
+import Api from '../dataAccess/api';
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,7 +13,13 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export function loader() {
+  return Api.getCountAsync();
+}
+
 export default function Index() {
+  // const z = useLoaderData<typeof loader>();
+  // debugger
   const x: any = (
     <div style={style}>
       <Counter />
