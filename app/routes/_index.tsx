@@ -23,7 +23,7 @@ export default function Index() {
   const x: any = (
     <div style={style}>
       <Counter />
-      <Wait />
+      {/* <Wait /> */}
     </div>
   );
   let y: any;
