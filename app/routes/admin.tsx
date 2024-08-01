@@ -4,7 +4,6 @@ import { useParams } from "@remix-run/react";
 
 export default function Admin() {
     const params = useParams();
-    debugger
     const isAllowed = false;
     const [value, setValue] = React.useState<number | null>(2);
 
