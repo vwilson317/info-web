@@ -16,7 +16,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body style={style}>
         {children}
         <ScrollRestoration />
         <Scripts />
@@ -24,6 +24,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </body>
     </html>
   );
+}
+
+const style = {
+  margin: 0,
+  height: '100%',
+  overflow: 'hidden'
 }
 
 export default function App() {
