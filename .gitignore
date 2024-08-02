@@ -1,12 +1,5 @@
 node_modules
 
-/.cache
 /build
 .env
-
-api/node_modules/
-api/dist/dataAccess.js
-api/dist/
-api/package-lock.json
-BodyByBurgersDB/bin/
-BodyByBurgersDB/obj/
+.vercel

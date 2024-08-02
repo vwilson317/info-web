@@ -21,7 +21,8 @@ export default function Counter() {
 
     return (
         <div>
-            <h1 style={style}>{data}</h1>
+            {/* @ts-ignore */}
+            <h1 style={style}>{data.count}</h1>
         </div>
     );
 }
